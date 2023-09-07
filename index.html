@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1 id="titulo-principal">Practica 2-2 | Lista de Tareas</h1>
+
+    <div id="elecciones-tareas">
+        <div>
+            <input id="tarea-agregada" type="text" placeholder="Agregar Tarea">
+            <button onclick="agregarTarea()">Agregar</button>
+        </div>
+
+        <div>
+            <input id="tarea-buscada" type="number" min="0" placeholder="Buscar por Posición">
+            <button onclick="buscarTarea()">Buscar</button>
+        </div>
+
+        <div>
+            <input id="posicion-actualizar" type="number" min="0" placeholder="Posición a Actualizar">
+            <input id="nueva-tarea-actualizada" type="text" placeholder="Nueva Tarea">
+            <button onclick="actualizarTarea()">Actualizar</button>
+        </div>
+
+        <div>
+            <input id="posicion-borrar" type="number" min="0" placeholder="Posición a Borrar">
+            <button onclick="borrarTarea()">Borrar</button>
+        </div>
+
+        <div>
+            <button id="borrar-lista" onclick="eliminarTareas()">Eliminar Todas</button>
+        </div>
+    </div>
+
+    
+    <div class="tareas">
+        <div id="contenedor-tarea-buscada">
+            <h3>Tarea Buscada</h3>
+            <p></p>
+        </div>
+    
+        <div id="contenedor-tarea-agregada">
+            <h3>Lista de Tareas</h3>
+            <ol start="1"></ol>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

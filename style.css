@@ -1,0 +1,26 @@
+body {
+    place-content: center;
+    display: grid;
+    background-color: rgb(52, 240, 52);
+}
+
+#elecciones-tareas {
+    background-color: rebeccapurple;
+    border: 2px solid black;
+    border-radius: 2px;
+    padding: 8px;
+}
+
+input {
+    border: 1px solid black;
+    text-align: center;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#borrar-lista {
+    margin-top: 4px;
+}
