@@ -12,14 +12,17 @@ let tareas = obtenerTareas();
 
 /* Asegura que la lista de tareas se cargue cuando la pagina este lista */
 
-document.addEventListener('DOMContentLoaded', cargarTareas);
+document.addEventListener('DOMContentLoaded', () => {
+    cargarTareas();
+});
 
 
 /**
  * Obtiene las tareas almacenadas en el local storage
+ * @returns si no hay tareas almacenadas retorna un arreglo vacio
  */
 function obtenerTareas() {
-    JSON.parse(localStorage.getItem('tareas')) || [];
+    return JSON.parse(localStorage.getItem('tareas')) || [];
 }
 
 
@@ -37,9 +40,6 @@ function guardarTareas() {
 function agregarTarea() {
     let textoTarea = inputTareaAgregada.value;
     if (textoTarea) {
-        if (!tareas) {
-            tareas = []; 
-        }
         tareas.push({
             texto: textoTarea
         });
@@ -81,9 +81,12 @@ function actualizarTarea() {
         inputPosTarea.value = '';
         inputActualizarTarea.value = '';
         cargarTareas();
-        divTareaBuscada.querySelector('p').innerHTML = ''; 
-    }
+        inputTareaBuscada.innerHTML = '';
+        divTareaBuscada.querySelector('p').textContent = '';
+    } 
 }
+
+
 
 
 /**
@@ -92,12 +95,10 @@ function actualizarTarea() {
 function borrarTarea() {
     let posicion = parseInt(inputBorrarPosicion.value);
     if (posicion >= 0 && posicion < tareas.length) {
-        if (tareas) {
-            tareas.splice(posicion, 1);
-            guardarTareas();
-            inputBorrarPosicion.value = '';
-            cargarTareas();
-        }
+        tareas.splice(posicion, 1); 
+        guardarTareas(); 
+        inputBorrarPosicion.value = ''; 
+        cargarTareas(); 
     }
 }
 
